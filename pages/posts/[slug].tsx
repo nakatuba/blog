@@ -1,10 +1,13 @@
+import path from 'path'
 import Head from 'next/head'
+import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import { getPostBySlug, getAllPosts } from '../../lib/posts'
 import styles from '../../styles/Home.module.css'
 
 type Props = {
   post: {
+    slug: string
     title: string
     content: string
   }
@@ -16,7 +19,23 @@ export default function Post({ post }: Props) {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <ReactMarkdown>{post.content}</ReactMarkdown>
+      <ReactMarkdown
+        components={{
+          img({ src, alt }) {
+            const images = require.context('/posts', true, /[^(\.md)]$/)
+            const imagePath = `./${path.join(post.slug, src ?? '')}`
+
+            return (
+              <Image
+                src={images.keys().includes(imagePath) ? images(imagePath) : ''}
+                alt={alt}
+              />
+            )
+          },
+        }}
+      >
+        {post.content}
+      </ReactMarkdown>
     </div>
   )
 }
