@@ -1,3 +1,4 @@
+import Footer from '../components/footer'
 import Header from '../components/header'
 import '../styles/globals.css'
 import { ChakraProvider } from '@chakra-ui/react'
@@ -8,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   )
 }
