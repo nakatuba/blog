@@ -26,16 +26,16 @@ export default function Header() {
             </Link>
           </HStack>
           <HStack>
-            <Button>
-              <Link href="https://twitter.com/nakatuba0626" isExternal>
+            <Link href="https://twitter.com/nakatuba0626" isExternal>
+              <Button>
                 <IoLogoTwitter size={28} color="#1DA1F2" />
-              </Link>
-            </Button>
-            <Button>
-              <Link href="https://github.com/nakatuba" isExternal>
+              </Button>
+            </Link>
+            <Link href="https://github.com/nakatuba" isExternal>
+              <Button>
                 <IoLogoGithub size={28} />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? (
                 <IoMoon size={28} />
