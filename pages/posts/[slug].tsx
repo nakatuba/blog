@@ -1,26 +1,24 @@
-import path from 'path'
+import PostType from '../../interfaces/post'
+import { getAllPosts, getPostBySlug } from '../../lib/posts'
+import { Container, Heading } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
+import path from 'path'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { okaidia } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { getPostBySlug, getAllPosts } from '../../lib/posts'
-import styles from '../../styles/Home.module.css'
 
 type Props = {
-  post: {
-    slug: string
-    title: string
-    content: string
-  }
+  post: PostType
 }
 
 export default function Post({ post }: Props) {
   return (
-    <div className={styles.container}>
+    <Container maxW="4xl" py={16}>
       <Head>
         <title>{post.title}</title>
       </Head>
+      <Heading>{post.title}</Heading>
       <ReactMarkdown
         components={{
           img({ src, alt }) {
@@ -55,7 +53,7 @@ export default function Post({ post }: Props) {
       >
         {post.content}
       </ReactMarkdown>
-    </div>
+    </Container>
   )
 }
 
