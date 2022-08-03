@@ -54,6 +54,7 @@ export default function Post({ post }: Props) {
             )
           },
         }}
+        linkTarget="_blank"
       >
         {post.content}
       </ReactMarkdown>
