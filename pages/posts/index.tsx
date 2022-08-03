@@ -2,6 +2,7 @@ import PostCard from '../../components/post-card'
 import PostType from '../../interfaces/post'
 import { getAllPosts } from '../../lib/posts'
 import { Container, Stack } from '@chakra-ui/react'
+import Head from 'next/head'
 
 type Props = {
   posts: PostType[]
@@ -10,6 +11,10 @@ type Props = {
 export default function Posts({ posts }: Props) {
   return (
     <Container maxW="4xl" py={16}>
+      <Head>
+        <title>Posts | Tsubasa Nakagawa</title>
+        <link rel="icon" href="/icon.png" />
+      </Head>
       <Stack spacing={16}>
         {posts.map((post) => (
           <PostCard key={post.slug} post={post}></PostCard>
