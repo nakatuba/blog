@@ -16,7 +16,7 @@ export default function Post({ post }: Props) {
   return (
     <Container maxW="4xl" py={16}>
       <Head>
-        <title>{post.title} | Tsubasa Nakagawa</title>
+        <title>{`${post.title} | Tsubasa Nakagawa`}</title>
         <link rel="icon" href="/icon.png" />
       </Head>
       <Heading>{post.title}</Heading>
