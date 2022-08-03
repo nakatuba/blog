@@ -1,6 +1,6 @@
 import PostType from '../../interfaces/post'
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
-import { Container, Heading } from '@chakra-ui/react'
+import { Container, Heading, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import Image from 'next/image'
 import path from 'path'
@@ -19,7 +19,10 @@ export default function Post({ post }: Props) {
         <title>{`${post.title} | Tsubasa Nakagawa`}</title>
         <link rel="icon" href="/icon.png" />
       </Head>
-      <Heading>{post.title}</Heading>
+      <Heading mb={4}>{post.title}</Heading>
+      <Text textAlign="right" mb={4}>
+        {post.date}
+      </Text>
       <ReactMarkdown
         components={{
           img({ src, alt }) {
