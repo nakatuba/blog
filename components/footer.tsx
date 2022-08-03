@@ -5,7 +5,7 @@ export default function Footer() {
     <Box bg={useColorModeValue('gray.100', 'gray.900')} mt="auto">
       <Container maxW="4xl" py={4}>
         <Text textAlign="center">
-          © 2022 Chakra Templates. All rights reserved
+          © 2022 Tsubasa Nakagawa. All rights reserved
         </Text>
       </Container>
     </Box>
