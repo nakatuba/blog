@@ -1,15 +1,7 @@
 import PostCard from '../components/post-card'
 import PostType from '../interfaces/post'
 import { getAllPosts } from '../lib/posts'
-import {
-  Avatar,
-  Center,
-  Container,
-  Heading,
-  Link,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
+import { Avatar, Center, Heading, Link, Stack, Text } from '@chakra-ui/react'
 import moment from 'moment'
 import Head from 'next/head'
 
@@ -19,7 +11,7 @@ type Props = {
 
 export default function Home({ posts }: Props) {
   return (
-    <Container maxW="4xl" py={16}>
+    <>
       <Head>
         <title>Tsubasa Nakagawa</title>
         <link rel="icon" href="/icon.png" />
@@ -28,7 +20,7 @@ export default function Home({ posts }: Props) {
         <Avatar src="/profile.jpg" size="2xl"></Avatar>
         <Text fontSize="2xl">Tsubasa Nakagawa</Text>
       </Stack>
-      <Heading>Posts</Heading>
+      <Heading mb={4}>Posts</Heading>
       <Stack spacing={8} mb={8}>
         {posts
           .sort((a, b) => moment(b.date).diff(a.date))
@@ -42,7 +34,7 @@ export default function Home({ posts }: Props) {
           Read more →
         </Link>
       </Center>
-    </Container>
+    </>
   )
 }
 

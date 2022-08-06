@@ -4,20 +4,52 @@ import {
   Container,
   Flex,
   HStack,
+  IconButton,
   Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { IoLogoGithub, IoLogoTwitter, IoMoon, IoSunny } from 'react-icons/io5'
+import {
+  IoLogoGithub,
+  IoLogoTwitter,
+  IoMenu,
+  IoMoon,
+  IoSunny,
+} from 'react-icons/io5'
 
 export default function Header() {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.900')}>
+    <Box
+      bg={useColorModeValue('gray.100', 'gray.900')}
+      position="fixed"
+      w="100%"
+      zIndex={2}
+    >
       <Container maxW="4xl">
         <Flex h={16} alignItems="center" justifyContent="space-between">
-          <HStack spacing={8}>
+          <Box display={{ md: 'none' }}>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                icon={<IoMenu size={28} />}
+              ></MenuButton>
+              <MenuList>
+                <MenuItem as={Link} href="/">
+                  Home
+                </MenuItem>
+                <MenuItem as={Link} href="/posts">
+                  Posts
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          </Box>
+          <HStack spacing={8} display={{ base: 'none', md: 'flex' }}>
             <Link href="/" fontSize={20} fontWeight="bold">
               Home
             </Link>
@@ -26,16 +58,16 @@ export default function Header() {
             </Link>
           </HStack>
           <HStack>
-            <Link href="https://twitter.com/nakatuba0626" isExternal>
-              <Button>
-                <IoLogoTwitter size={28} color="#1DA1F2" />
-              </Button>
-            </Link>
-            <Link href="https://github.com/nakatuba" isExternal>
-              <Button>
-                <IoLogoGithub size={28} />
-              </Button>
-            </Link>
+            <Button
+              as={Link}
+              href="https://twitter.com/nakatuba0626"
+              isExternal
+            >
+              <IoLogoTwitter size={28} color="#1DA1F2" />
+            </Button>
+            <Button as={Link} href="https://github.com/nakatuba" isExternal>
+              <IoLogoGithub size={28} />
+            </Button>
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? (
                 <IoMoon size={28} />
