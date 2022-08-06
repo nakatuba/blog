@@ -58,8 +58,8 @@ export default function Post({ post }: Props) {
             const match = /language-(\w+)/.exec(className ?? '')
             return !inline ? (
               <SyntaxHighlighter
-                style={okaidia}
-                language={match && match[1]}
+                style={okaidia as any}
+                language={match ? match[1] : ''}
                 PreTag="div"
                 {...props}
               >
