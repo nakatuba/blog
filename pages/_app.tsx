@@ -1,8 +1,7 @@
 import Footer from '../components/footer'
 import Header from '../components/header'
 import '../styles/globals.css'
-import { ChakraProvider } from '@chakra-ui/react'
-import { Flex } from '@chakra-ui/react'
+import { ChakraProvider, Container, Flex } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,7 +9,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ChakraProvider>
       <Flex flexDirection="column" minH="100vh">
         <Header />
-        <Component {...pageProps} />
+        <Container maxW="4xl" pt={32} pb={16}>
+          <Component {...pageProps} />
+        </Container>
         <Footer />
       </Flex>
     </ChakraProvider>

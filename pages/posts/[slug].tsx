@@ -1,13 +1,6 @@
 import PostType from '../../interfaces/post'
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
-import {
-  Code,
-  Container,
-  Heading,
-  Link,
-  ListItem,
-  Text,
-} from '@chakra-ui/react'
+import { Code, Heading, Link, ListItem, Text } from '@chakra-ui/react'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -22,7 +15,7 @@ type Props = {
 
 export default function Post({ post }: Props) {
   return (
-    <Container maxW="4xl" py={16}>
+    <>
       <Head>
         <title>{`${post.title} | Tsubasa Nakagawa`}</title>
         <link rel="icon" href="/icon.png" />
@@ -76,7 +69,7 @@ export default function Post({ post }: Props) {
       >
         {post.content}
       </ReactMarkdown>
-    </Container>
+    </>
   )
 }
 
