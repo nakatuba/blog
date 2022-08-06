@@ -1,6 +1,14 @@
 import PostType from '../../interfaces/post'
 import { getAllPosts, getPostBySlug } from '../../lib/posts'
-import { Container, Heading } from '@chakra-ui/react'
+import {
+  Code,
+  Container,
+  Heading,
+  Link,
+  ListItem,
+  Text,
+} from '@chakra-ui/react'
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer'
 import Head from 'next/head'
 import Image from 'next/image'
 import path from 'path'
@@ -16,16 +24,29 @@ export default function Post({ post }: Props) {
   return (
     <Container maxW="4xl" py={16}>
       <Head>
-        <title>{post.title} | Tsubasa Nakagawa</title>
+        <title>{`${post.title} | Tsubasa Nakagawa`}</title>
         <link rel="icon" href="/icon.png" />
       </Head>
-      <Heading>{post.title}</Heading>
+      <Heading mb={4}>{post.title}</Heading>
+      <Text textAlign="right" mb={4}>
+        {post.date}
+      </Text>
       <ReactMarkdown
-        components={{
+        components={ChakraUIRenderer({
+          p: ({ children }) => (
+            <Text fontSize="xl" mb={4}>
+              {children}
+            </Text>
+          ),
+          a: (props) => <Link color="teal.500" {...props}></Link>,
+          li: ({ children }) => <ListItem fontSize="xl">{children}</ListItem>,
           img({ src, alt }) {
-            const images = require.context('/posts', true, /[^(\.md)]$/)
+            const images = require.context(
+              '/contents/posts',
+              true,
+              /[^(\.md)]$/
+            )
             const imagePath = `./${path.join(post.slug, src ?? '')}`
-
             return (
               <Image
                 src={images.keys().includes(imagePath) ? images(imagePath) : ''}
@@ -35,22 +56,23 @@ export default function Post({ post }: Props) {
           },
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className ?? '')
-            return !inline && match ? (
+            return !inline ? (
               <SyntaxHighlighter
                 style={okaidia}
-                language={match[1]}
+                language={match && match[1]}
                 PreTag="div"
                 {...props}
               >
                 {String(children).replace(/\n$/, '')}
               </SyntaxHighlighter>
             ) : (
-              <code className={className} {...props}>
+              <Code className={className} {...props}>
                 {children}
-              </code>
+              </Code>
             )
           },
-        }}
+        })}
+        linkTarget="_blank"
       >
         {post.content}
       </ReactMarkdown>
