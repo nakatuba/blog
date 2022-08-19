@@ -29,7 +29,7 @@ export default function Home({ posts }: Props) {
         <Text fontSize="2xl" fontWeight="bold">
           Tsubasa Nakagawa
         </Text>
-        <Container maxW="xl" fontSize="xl">
+        <Container maxW="2xl" fontSize="xl" fontFamily="Times New Roman">
           <Text>1st year master&apos;s student at Iyatomi Lab.</Text>
           <Text>
             Major in Applied Informatics, Graduate School of Science and
