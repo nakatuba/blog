@@ -8,3 +8,13 @@ https://www.nakatuba.com
 * [gray-matter](https://github.com/jonschlinkert/gray-matter) - Smarter YAML front matter parser
 * [react-markdown](https://github.com/remarkjs/react-markdown) - Markdown component for React
 * [react-syntax-highlighter](https://github.com/react-syntax-highlighter/react-syntax-highlighter) - syntax highlighting component for React
+
+## Install modules
+```
+npm install
+```
+
+## Run server
+```
+npm run dev
+```
