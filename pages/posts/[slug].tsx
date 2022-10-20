@@ -33,20 +33,6 @@ export default function Post({ post }: Props) {
           ),
           a: (props) => <Link color="teal.500" {...props}></Link>,
           li: ({ children }) => <ListItem fontSize="xl">{children}</ListItem>,
-          img({ src, alt }) {
-            const images = require.context(
-              '/contents/posts',
-              true,
-              /[^(\.md)]$/
-            )
-            const imagePath = `./${path.join(post.slug, src ?? '')}`
-            return (
-              <Image
-                src={images.keys().includes(imagePath) ? images(imagePath) : ''}
-                alt={alt}
-              />
-            )
-          },
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className ?? '')
             return !inline ? (
