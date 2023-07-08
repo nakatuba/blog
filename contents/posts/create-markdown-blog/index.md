@@ -30,6 +30,6 @@ date: '2022-08-06'
 - [chakra-ui-markdown-renderer](https://github.com/mustaphaturhan/chakra-ui-markdown-renderer)
   - Markdown から変換された HTML の要素を Chakra UI のコンポーネントに変換してくれる
 
-## 今後
+### 今後
 
 インターンに参加した感想や研究のこと、技術的なメモを残していければいいなと思っています。

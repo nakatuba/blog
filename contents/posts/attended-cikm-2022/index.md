@@ -20,6 +20,6 @@ Proceedings of the 31st ACM International Conference on Information & Knowledge 
 
 今回発表に使用したポスターは[こちら](/posts/attended-cikm-2022/poster.pdf)
 
-## 発表の様子
+### 発表の様子
 
 ![ポスターセッション](/posts/attended-cikm-2022/poster_session.jpg)
