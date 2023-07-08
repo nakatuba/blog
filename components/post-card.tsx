@@ -1,5 +1,5 @@
-import PostType from '../interfaces/post'
 import { Box, Heading, Stack, Text, useColorModeValue } from '@chakra-ui/react'
+import PostType from 'types/post'
 
 type Props = {
   post: PostType
