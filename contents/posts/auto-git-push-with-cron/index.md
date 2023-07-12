@@ -23,7 +23,7 @@ crontab -e
 
 1 時間ごとに自動で git push する
 
-```
+```shell
 0 * * * * export LANG=ja_JP.UTF-8 && git add -A && git diff --staged --quiet || (git commit -m "$(date +"%Y-%m-%d %H:%M:%S")" && git push) >/dev/null 2>&1
 ```
 
