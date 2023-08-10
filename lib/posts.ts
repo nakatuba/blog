@@ -16,7 +16,7 @@ export function getPostBySlug(slug: string) {
 
 export function getAllPosts() {
   const slugs = fs.readdirSync('contents/posts')
-  const posts = slugs.map((slug) => getPostBySlug(slug))
+  const posts = slugs.map(slug => getPostBySlug(slug))
 
   return posts
 }
